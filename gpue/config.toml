@@ -1,0 +1,29 @@
+baseURL = "https://gpue.github.com/"
+languageCode = "de-de"
+title = "Georg Püschel"
+theme = "github-style"
+# googleAnalytics = "UA-123456-789"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
+[params]
+  author = "Georg Püschel"
+  description = "Wandelbots Co-Founder, evangelizing Cloud robotics and modern software engineering culture."
+  github = "gpue"
+  twitter = "gpue"
+  linkedin = "gpuesch"
+  email = "georg.pueschel@gmail.com"
+  url = "https://gpue.github.com"
+  keywords = "software, cloud, robots, kubernetes, devops"
+  rss = false
+  lastmod = true
+  favicon = "/images/github.png"
+  location = "Germany"
+  avatar = "/avatar.png"
+
+  [[params.links]]
+    title = "Wandelbots"
+    href = "https://wwww.wandelbots.com"
+
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
