@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Georg Püschel</title>
-    <link>https://gpue.github.com/tags/</link>
+    <link>https://www.georgpueschel.de/tags/</link>
     <description>Recent content in Tags on Georg Püschel</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>de-de</language><atom:link href="https://gpue.github.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>de-de</language><atom:link href="https://www.georgpueschel.de/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
