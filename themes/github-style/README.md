@@ -54,7 +54,7 @@ hugo new post/title_of_the_post.md
 
 ## Limit display content
 
-### Approch 1: use summary
+### Approach 1: use summary
 
 ```
 ---
@@ -65,9 +65,9 @@ summary: "The summary content"
 ---
 ```
 
-### Approch 2: use `<!--more-->`
+### Approach 2: use `<!--more-->`
 
-Use `<!--more-->` to seperate content that will display in the posts page as abstraction and the rest of the content. This is different from summary, as summary will not appear in the post.
+Use `<!--more-->` to separate content that will display in the posts page as abstraction and the rest of the content. This is different from summary, as summary will not appear in the post.
 ```
 ---
 title: "title"
@@ -79,7 +79,7 @@ abstraction show in the post page
 other content
 ```
 
-## add last modified data
+## Add last modified date
 
 add to `config.toml`
 
@@ -90,7 +90,28 @@ lastmod = true
   lastmod = ["lastmod", ":fileModTime", ":default"]
 ```
 
-## Support LaTex
+## Use [gitalk](https://github.com/gitalk/gitalk) to support comments
+
+add to `config.toml`
+
+```toml
+enableGitalk = true
+
+  [params.gitalk]
+    clientID = "Your client ID"
+    clientSecret = "Your client secret"
+    repo = "repo"
+    owner = "Your Github username"
+    admin = "Your Github username"
+    id = "location.pathname"
+    labels = "gitalk"
+    perPage = 30
+    pagerDirection = "last"
+    createIssueManually = true
+    distractionFreeMode = false
+```
+
+## Support LaTeX
 
 In you post add `math: true` to [front matter](https://gohugo.io/content-management/front-matter/)
 
@@ -100,7 +121,7 @@ katex: math
 ---
 ```
 
-Then the [katex script](https://katex.org/docs/autorender.html) will auto render the string enclosed be delimiters.
+Then the [katex script](https://katex.org/docs/autorender.html) will auto render the string enclosed by delimiters.
 
 ```
 # replace ... with latex formula
@@ -108,7 +129,28 @@ display inline \\( ... \\)
 display block $$ ... $$
 ```
 
-![latex example](images/latex_example.png)
+![latex example](https://raw.githubusercontent.com/MeiK2333/github-style/master/images/latex_example.png)
+
+## Support MathJax
+you can add MathJax:true to frontmatter
+
+```
+mathJax: true
+```
+
+## Custom CSS and JS
+
+Add your files in the static folder and list them in the custom_css and custom_js parameters
+
+For example, with static/css/custom.css and static/js/custom.js, add to `config.toml`
+
+```toml
+[params]
+  custom_css = ["css/custom.css"]
+  custom_js = ["js/custom.js"]
+  # custom script with defer attribute
+  defer_custom_js = ["js/defer_custom.js"]
+```
 
 ## config.toml example
 
@@ -117,7 +159,6 @@ baseURL = "https://meik2333.com/"
 languageCode = "zh-cn"
 title = "MeiK's blog"
 theme = "github-style"
-googleAnalytics = "UA-123456-789"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
 
@@ -137,7 +178,25 @@ pygmentsUseClasses = true
   lastmod = true
   userStatusEmoji = "😀"
   favicon = "/images/github.png"
+  avatar = "/images/avatar.png"
+  headerIcon = "/images/GitHub-Mark-Light-32px.png"
   location = "China"
+  enableGitalk = true
+  custom_css = ["css/custom.css"]
+  custom_js = ["js/custom.js"]
+
+  [params.gitalk]
+    clientID = "Your client ID"
+    clientSecret = "Your client secret"
+    repo = "repo"
+    owner = "MeiK2333"
+    admin = "MeiK2333"
+    id = "location.pathname"
+    labels = "gitalk"
+    perPage = 15
+    pagerDirection = "last"
+    createIssueManually = true
+    distractionFreeMode = false
 
   [[params.links]]
     title = "Link"
@@ -150,7 +209,49 @@ pygmentsUseClasses = true
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
 
+[services]
+  [services.googleAnalytics]
+    ID = "UA-123456-789"
+
 ```
+
+## Support collapsible block
+
+You can create a collapsible block like this:
+
+```
+{{<details "summary title">}}
+
+block content
+
+{{</details>}}
+```
+
+And it will show like this:
+
+<details>
+  <summary>summary title</summary>
+  <p>block content</p>
+</details>
+
+## Support local search
+
+add to `config.toml`
+
+```toml
+[params]
+  enableSearch = true
+
+[outputs]
+  home = ["html", "json"]
+
+[outputFormats.json]
+  mediaType = "application/json"
+  baseName = "index"
+  isPlainText = false
+```
+
+We can do local search now, it is implemented by `fuse.js`.
 
 ## deploy.sh example
 
@@ -190,3 +291,7 @@ cd public && git add --all && git commit -m "Publishing to gh-pages (publish.sh)
 ```
 
 Then you can verify the site is working and use `git push --all` to push the change to github. If you don't want to check again every time, you can uncomment the `#git push --all` in the script.
+
+## TODO
+
+- 重写标题导航，那玩意儿引入的 JS 在控制台报错。
