@@ -8,13 +8,14 @@ pygmentsUseClasses = true
 
 [params]
   author = "Georg Püschel"
-  description = "Wandelbots Co-Founder, evangelizing Cloud robotics and modern software engineering culture."
+  description = "AI, robots, CNCF"
   github = "gpue"
   twitter = "gpue"
   linkedin = "gpuesch"
+  huggingface = "gpue"
   email = "georg.pueschel@gmail.com"
-  url = "https://gpue.github.com"
-  keywords = "software, cloud, robots, kubernetes, devops, start-up"
+  url = "https://gpue.github.io"
+  keywords = "software, cloud, robots, kubernetes, devops, start-up, AI, CNCF, Wandelbots"
   rss = false
   lastmod = true
   favicon = "/images/github.png"
@@ -23,7 +24,11 @@ pygmentsUseClasses = true
 
   [[params.links]]
     title = "Wandelbots"
-    href = "https://wwww.wandelbots.com"
+    href = "https://www.wandelbots.com"
+
+  [[params.links]]
+    title = "Hugging Face"
+    href = "https://huggingface.co/gpue"
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
