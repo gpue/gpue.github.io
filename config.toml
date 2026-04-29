@@ -18,7 +18,8 @@ pygmentsUseClasses = true
   keywords = "software, cloud, robots, kubernetes, devops, start-up, AI, CNCF, Wandelbots"
   rss = false
   lastmod = true
-  favicon = "/images/github.png"
+  favicon = "/images/gp-logo.svg"
+  headerIcon = "/images/gp-logo.svg"
   location = "Germany"
   avatar = "/avatar.png"
 
