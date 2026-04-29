@@ -26,9 +26,5 @@ pygmentsUseClasses = true
     title = "Wandelbots"
     href = "https://www.wandelbots.com"
 
-  [[params.links]]
-    title = "Hugging Face"
-    href = "https://huggingface.co/gpue"
-
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
